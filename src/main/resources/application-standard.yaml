@@ -1,0 +1,41 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: m1,m2
+      m1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/coursedb?serverTimezone=GMT%2B8
+        username: root
+        password: rootroot
+      m2:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/coursedb2?serverTimezone=GMT%2B8
+        username: root
+        password: rootroot
+    sharding:
+      tables:
+        course:
+          actual-data-nodes: m$->{1..2}.course_$->{1..2}
+          database-strategy:
+            standard:
+              sharding-column: cid
+              range-algorithm-class-name: com.example.shardingspheredemo.algorithm.MyRangeDSShardingAlgorithm
+              precise-algorithm-class-name: com.example.shardingspheredemo.algorithm.MyPreciseDSShardingAlgorithm
+          table-strategy:
+            standard:
+              sharding-column: cid
+              range-algorithm-class-name: com.example.shardingspheredemo.algorithm.MyRangeTableShardingAlgorithm
+              precise-algorithm-class-name: com.example.shardingspheredemo.algorithm.MyPreciseTableShardingAlgorithm
+          key-generator:
+            column: cid
+            type: SNOWFLAKE
+            props:
+              worker:
+                id: 1
+    props:
+      sql:
+        show: true
+mybatis-plus:
+  config-location: ["classpath*:/mapper/**/*.xml"]

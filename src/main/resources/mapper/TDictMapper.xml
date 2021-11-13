@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.shardingspheredemo.mapper.TDictMapper">
+  <resultMap id="BaseResultMap" type="com.example.shardingspheredemo.entity.TDict">
+    <!--@mbg.generated-->
+    <!--@Table t_dict-->
+    <result column="cstatus" jdbcType="VARCHAR" property="cstatus" />
+    <result column="ustatus" jdbcType="VARCHAR" property="ustatus" />
+    <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    dict_id, cstatus, ustatus, create_at
+  </sql>
+</mapper>

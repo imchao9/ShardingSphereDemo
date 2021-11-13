@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.shardingspheredemo.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.example.shardingspheredemo.entity.User">
+    <!--@mbg.generated-->
+    <!--@Table t_user-->
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="ustatus" jdbcType="VARCHAR" property="ustatus" />
+    <result column="uage" jdbcType="INTEGER" property="uage" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    user_id, username, ustatus, uage
+  </sql>
+</mapper>

@@ -14,10 +14,6 @@ spring:
         url: jdbc:mysql://localhost:3306/coursedb2?serverTimezone=GMT%2B8
         username: root
         password: rootroot
-      master-slave-rules:
-        ds0:
-          master-data-source-name: m1
-          slave-data-source-name: m2
     sharding:
       tables:
         course:
@@ -35,32 +31,10 @@ spring:
               worker:
                 id: 1
         t_dict:
-          actual-data-nodes: m1.t_dict_$->{1..2}
           key-generator:
             column: dict_id
             type: SNOWFLAKE
-            props:
-              worker:
-                id:1
-          table-strategy:
-            inline:
-              sharding-column: cstatus
-              algorithm-expression: t_dict_$->{cstatus.toInteger()%2+1}
-
-        user:
-          actual-data-nodes: m1.t_user_$->{1..2}
-          key-generator:
-            column: user_id
-            type: SNOWFLAKE
-            props:
-              worker:
-                id:1
-          table-strategy:
-            inline:
-              sharding-column: ustatus
-              algorithm-expression: t_user_$->{ustatus.toInteger()%2+1}
-#      broadcast-tables: t_dict
-      binding-tables[0]: user,t_dict
+      broadcast-tables: t_dict
 
     props:
       sql:

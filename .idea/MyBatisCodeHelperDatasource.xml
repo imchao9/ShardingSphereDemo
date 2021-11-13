@@ -28,6 +28,7 @@
             </entry>
           </map>
         </option>
+        <option name="mybatisPlusIdType" value="NONE" />
         <option name="tableGenerateConfigs">
           <map>
             <entry key="coursedb:course_1">
@@ -47,6 +48,30 @@
                 <TableGenerateConfig>
                   <option name="javaModelName" value="Course2" />
                   <option name="moduleName" value="ShardingSphereDemo" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="coursedb:t_dict">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="TDict" />
+                  <option name="moduleName" value="ShardingSphereDemo" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="coursedb:t_user">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="User" />
+                  <option name="moduleName" value="ShardingSphereDemo" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
                   <option name="useActualColumnName" value="false" />
                 </TableGenerateConfig>
               </value>
